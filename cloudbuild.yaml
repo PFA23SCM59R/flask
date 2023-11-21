@@ -1,13 +1,13 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/flaskmain/flaskmainass', '.']
+  args: ['build', '-t', 'gcr.io/tensorflow-405819/tensorflow', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/flaskmain/flaskmainass']
+  args: ['push', 'gcr.io/tensorflow-405819/tensorflow']
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'flaskmainass', '--image', 'gcr.io/flaskmain/flaskmainass', '--region', 'us-central1', '--platform', 'managed','--port','80']
+  args: ['run', 'deploy', 'tensorflow', '--image', 'gcr.io/tensorflow-405819/tensorflow', '--region', 'us-central1', '--platform', 'managed','--port','80']
 images:
-- gcr.io/flaskmain/flaskmainass
+- gcr.io/tensorflow-405819/tensorflow
