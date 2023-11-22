@@ -250,7 +250,7 @@ def github():
     }
 
     # Update your Google cloud deployed LSTM app URL (NOTE: DO NOT REMOVE "/")
-    LSTM_API_URL = "https://lstm-ki3bqnttla-uc.a.run.app/" + "api/forecast"
+    LSTM_API_URL = "https://lstm-2df7ld3beq-uc.a.run.app/" + "api/forecast"
 
     '''
     Trigger the LSTM microservice to forecasted the created issues
@@ -281,12 +281,12 @@ def github():
         "closed": closed_at_issues,
         "starCount": repository["stargazers_count"],
         "forkCount": repository["forks_count"],
-        "createdAtImageUrls": {
-            **created_at_response.json(),
-        },
-        "closedAtImageUrls": {
-            **closed_at_response.json(),
-        },
+        # "createdAtImageUrls": {
+        #     **created_at_response.json(),
+        # },
+        # "closedAtImageUrls": {
+        #     **closed_at_response.json(),
+        # },
     }
     # Return the response back to client (React app)
     return jsonify(json_response)
