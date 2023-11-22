@@ -281,12 +281,12 @@ def github():
         "closed": closed_at_issues,
         "starCount": repository["stargazers_count"],
         "forkCount": repository["forks_count"],
-        # "createdAtImageUrls": {
-        #     **created_at_response.json(),
-        # },
-        # "closedAtImageUrls": {
-        #     **closed_at_response.json(),
-        # },
+        "createdAtImageUrls": {
+            **created_at_response.json(),
+        },
+        "closedAtImageUrls": {
+            **closed_at_response.json(),
+        },
     }
     # Return the response back to client (React app)
     return jsonify(json_response)
